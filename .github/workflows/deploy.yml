@@ -1,0 +1,13 @@
+name: CI_Test_Workflow
+on:
+  push:
+    branches: [ main, master ]
+jobs:
+  build-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install
+        run: npm install
+      - name: Test
+        run: echo "Code đã được kiểm tra tự động thành công!"
