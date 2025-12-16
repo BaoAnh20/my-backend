@@ -41,7 +41,7 @@ app.use(express.json()); // Để đọc được dữ liệu JSON từ Frontend
 // const mongoURI = "mongodb+srv://BaoAnh:baoanh@myos.yymyzkf.mongodb.net/myOS?retryWrites=true&w=majority";
 
 // Thêm /myOS vào trước dấu ?
-const mongoURI = "mongodb+srv://BaoAnh:baoanh@myos.yymyzkf.mongodb.net/myOS?retryWrites=true&w=majority";
+const mongoURI = "mongodb+srv://BaoAnh:ba20@myos.yymyzkf.mongodb.net/?appName=myOS";
 
 mongoose.connect(mongoURI)
     .then(() => console.log("Đã kết nối MongoDB thành công!"))
@@ -52,6 +52,7 @@ mongoose.connect(mongoURI)
 
 
 const Task = mongoose.model('Task', { name: String }, 'tasks');
+
 // 3. CÁC ĐƯỜNG DẪN API (Chức năng website)
 app.get('/', (req, res) => {
     res.send('Backend BAO ANH đã kết nối Database thành công!');
