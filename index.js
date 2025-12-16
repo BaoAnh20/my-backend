@@ -36,15 +36,22 @@ app.use(express.json()); // Để đọc được dữ liệu JSON từ Frontend
 
 // 1. KẾT NỐI DATABASE
 // Thay thế chuỗi dưới đây bằng chuỗi kết nối bạn vừa lấy được từ MongoDB Atlas
-const mongoURI = "mongodb+srv://BaoAnh:baoanh@myos.yymyzkf.mongodb.net/?appName=myOS";
+// const mongoURI = "mongodb+srv://BaoAnh:baoanh@myos.yymyzkf.mongodb.net/?appName=myOS";
+
+// const mongoURI = "mongodb+srv://BaoAnh:baoanh@myos.yymyzkf.mongodb.net/myOS?retryWrites=true&w=majority";
+
+// Thêm /myOS vào trước dấu ?
+const mongoURI = "mongodb+srv://BaoAnh:baoanh@myos.yymyzkf.mongodb.net/myOS?retryWrites=true&w=majority";
 
 mongoose.connect(mongoURI)
     .then(() => console.log("Đã kết nối MongoDB thành công!"))
     .catch(err => console.log("Lỗi kết nối DB:", err));
 
 // 2. TẠO MODEL (Cấu trúc bảng dữ liệu)
-const Task = mongoose.model('Task', { name: String });
+// const Task = mongoose.model('Task', { name: String }, 'tasks');
 
+
+const Task = mongoose.model('Task', { name: String }, 'tasks');
 // 3. CÁC ĐƯỜNG DẪN API (Chức năng website)
 app.get('/', (req, res) => {
     res.send('Backend BAO ANH đã kết nối Database thành công!');
